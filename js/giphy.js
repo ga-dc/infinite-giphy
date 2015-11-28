@@ -15,28 +15,24 @@ $(document).ready(function(){
     function makeGifs(){
       $.getJSON(url, function(response){
         totalgifs = response.data.length;
-        for(i; i < totalgifs; i++){
-          if (count < 10){
-            count++;
+        while(count < 10){
+          count++;
+          for(i; i < totalgifs; i++){
             $("body").append("<div class = 'gifs'><img src='"+ response.data[i].images.original.url + "'></div>");
-          }
-          else{
-            count = 0;
-            break;
           }
         }
       });
     }
 
-
     $(window).scroll(function(){
       if($(window).scrollTop() + $(window).height() > $(document).height() - 100){
         if(i === totalgifs){
           i = 0;
-          makeGifs();
         }
+        count = 0;
         makeGifs();
       }
     });
   });
+
 });
