@@ -18,7 +18,6 @@ $(document).ready(function(){
         for(i; i < totalgifs; i++){
           if (count < 10){
             count++;
-            console.log(i);
             $("body").append("<div class = 'gifs'><img src='"+ response.data[i].images.original.url + "'></div>");
           }
           else{
