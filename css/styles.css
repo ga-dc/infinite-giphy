@@ -4,20 +4,35 @@ body {
   font-family: Ribeye Marrow;
   margin: 0;
   padding: 0;
-  padding-left: 40%;
+  /*padding-left: 40%;*/
+  text-align: center;
 }
 
-form {
+#search-div{
+  width:100%;
+}
+
+/*form {
   position: fixed;
   left: 10%;
   top: 100px;
   width: 30%;
+}*/
+form#search{
+  margin:0px auto;
 }
-
 form h1 {
   font-size: 30px;
 }
-
+#keyword{
+  border:1px solid #000000;
+  background-color:#f6fade;
+}
+input#keyword{
+  width:50%;
+  height:30px;
+  font-size: 14px;
+}
 img {
   display: block;
   margin: 50px auto;
@@ -31,4 +46,11 @@ img {
   height: 350px;
   width: 350px;
   transition: 1s;
+}
+button{
+  width:120px;
+  height: 30px;
+  font-size: 16px;
+  background-color:#296ed6;
+  color:#ffffff;
 }
