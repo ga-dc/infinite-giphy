@@ -1,17 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Infinite Giphy!</title>
-  <link rel="stylesheet" href="css/styles.css">
+  <title>Welcome To Infinite Giphy!!! | To Infinity and BEYOND...</title>
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/custom.css">
 </head>
 <body>
-  
-  <form id="search">
-    <h1>Infinite Giphy!</h1>
-    <input type="search" id="keyword"/>
-    <button>Search</button>
-  </form>
-  
+
+  <!-- Main jumbotron for a primary marketing message or call to action -->
+<div class="jumbotron">
+  <div class="container">
+    <div id="search-div">
+      <form id="search" method="GET" action="index.html">
+        <h1 id="heading-logo">Infinite Giphy!</h1>
+        <p>Explore our vast collection of gif images. </br>Simply enter your search term below and enjoy...</p>
+        <input type="search" id="keyword" name="search" placeholder="enter search term..."/>
+        <button class="btn btn-primary btn-sm">Search &raquo;</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <!-- Example row of columns -->
+  <div id="output-area" class="row">
+
+  </div>
+</div>
   <script src="js/jquery.js"></script>
   <script src="js/giphy.js"></script>
 </body>
