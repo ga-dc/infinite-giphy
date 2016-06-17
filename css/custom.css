@@ -1,0 +1,11 @@
+@import url(http://fonts.googleapis.com/css?family=Ribeye+Marrow);
+body {
+  margin: 0;
+  padding: 0;
+  /*padding-left: 40%;*/
+  text-align: center;
+}
+
+#heading-logo{
+  font-family: Ribeye Marrow;
+}
