@@ -14,7 +14,7 @@ $(document).ready(function(){
       var output = "";
       for(var i = 0; i < itemCount; i++){
         output += "<div class=\"col-md-3\">";
-        output += "<h3>"+response.data[0].import_datetime+"</h3>";
+        output += "<h4>Date Added: "+response.data[0].import_datetime+"</h4>";
         output += "<p><img src=\""+response.data[i].images.fixed_width_downsampled.url+"\"></p>";
         output += "</div>";
       }
