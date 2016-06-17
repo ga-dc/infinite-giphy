@@ -1,20 +1,26 @@
-// # Infinite Giphy
-//
-// When the user:
-    // 1)  enters a search term,
-          //User enters a search term by:
-              // a)  typing their term into the search bar
-              // b)  and clicking enter
-    // 2)  return 10 images from Giphy,
-              // a) use API to access data
-              // b) and output to browser
-    // 3)  and arrange them vertically on the page.
-//
-// When the user:
-        // 4)  scrolls near to the bottom of the page,
-        // 5)  load an additional 10 images.
-        // 6)  And another 10 images... And another 10 images...keep going!
-//
-// ## Take a look:
-//
-// http://ga-wdi-exercises.github.io/infinite-giphy/
+$(document).ready(function(){
+  $("button").click(function(event){
+    event.preventDefault();
+    var searchTerm = $("input[name='search']").val();
+    var searchKey = "&api_key=dc6zaTOxFJmzC";
+    console.log(searchTerm);
+    var searchUrl = "http://api.giphy.com/v1/gifs/search?q="+searchTerm+searchKey;
+    $.ajax({
+      url: searchUrl,
+      type: "GET",
+      dataType: "json"
+    }).done(function(response){
+      var itemCount = response.data.length;
+      var output = "";
+      for(var i = 0; i < itemCount; i++){
+        output += "<div class=\"col-md-3\">";
+        output += "<h3>"+response.data[0].import_datetime+"</h3>";
+        output += "<p><img src=\""+response.data[i].images.fixed_width_downsampled.url+"\"></p>";
+        output += "</div>";
+      }
+      $("#output-area").append(output);
+    }).fail(function(response){
+      console.log("FAIL", response);
+    })
+  });
+});
