@@ -11,7 +11,8 @@ $('form').submit(function(event) {
     })
     .done(function(response) {
         console.log("success");
-        console.log(response)
+        var giph = new Giph(response)
+        new GiphView(giph)
     })
     .fail(function() {
         console.log("error");
