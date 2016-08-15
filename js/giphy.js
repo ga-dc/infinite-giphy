@@ -16,7 +16,15 @@ $(document).ready(function(){
       function tenPics(){
         for(i=0; i<=9; i++){
           $('body').append('<img src="'+response.data[i].images.fixed_height.url+'">');
-        }
+            $(window).scroll(function() {
+              if($(window).scrollTop() + $(window).height() == $(document).height()) {
+                for(j=11; j<=20; j++){
+                console.log("more coming!");
+                $('body').append('<img src="'+response.data[j].images.fixed_height.url+'">');
+              }
+            };
+          });
+        };
       }
       tenPics();
     }).fail(function(){
