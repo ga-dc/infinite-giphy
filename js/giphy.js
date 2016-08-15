@@ -12,7 +12,7 @@ $('form').submit(function(event) {
     .done(function(response) {
         console.log("success");
         var giph = new Giph(response)
-        new GiphView(giph)
+        var giphView = new GiphView(giph)
     })
     .fail(function() {
         console.log("error");

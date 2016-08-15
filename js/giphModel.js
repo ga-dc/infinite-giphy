@@ -1,3 +1,5 @@
 function Giph(response){
-    var response = response.data
+    console.log('model working')
+    giphArray = response.data
+    this.response = giphArray
 }
