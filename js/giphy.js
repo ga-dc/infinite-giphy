@@ -1,20 +1,6 @@
 $( document ).ready(function() {
     var $form = $("#search");
 
-    // Gify constructor
-    // function Gify(options) {
-    //   var options = options.data
-    //   this.image = options.data.images.fixed_height.url
-    // }
-    //
-    // Gify.protoype = {
-    //   render: function() {
-    //     var container = $("<div></div>")
-    //     container.append($("<img src=" +  + "/>"))
-    //   }
-    // }
-
-
     $form.on("submit", function(e) {
       e.preventDefault();
       // remove previously added images for new giphy searches
@@ -26,14 +12,13 @@ $( document ).ready(function() {
 
       // grab keyword value
       var $keyword = $("#keyword").val();
-      var offset = 0;
 
     $.ajax({
       type: "get",
       dataType: "json",
-      url: "http://api.giphy.com/v1/gifs/search?q=" + $keyword + "&offset=" + offset + "&api_key=dc6zaTOxFJmzC"
+      url: "http://api.giphy.com/v1/gifs/search?q=" + $keyword + "&limit=100&api_key=dc6zaTOxFJmzC"
       }).done(function(res){
-      for (i = 0; i < res.data.length; i++) {
+      for (i = 0; i < 10; i++) {
           var newImg = "<img src=" + res.data[i].images.fixed_height.url + ">";
           $("body").append(newImg);
         };
@@ -41,18 +26,10 @@ $( document ).ready(function() {
         // scroll function
         $(window).on('scroll', function() {
           if($(window).scrollTop() + $(window).height() >= $(document).height()){
-            offset++;
-            $.ajax({
-              type: "get",
-              dataType: "json",
-              url: "http://api.giphy.com/v1/gifs/search?q=" + $keyword + "&offset=" + offset + "&api_key=dc6zaTOxFJmzC"
-            }).done(function(res){
-              for (i = 0; i < res.data.length; i++) {
-                  var newImg = "<img src=" + res.data[i].images.fixed_height.url + ">";
-                  $("body").append(newImg);
-                };
-              });
-
+            for (i = 10; i < res.data.length; i++) {
+                var newImg = "<img src=" + res.data[i].images.fixed_height.url + ">";
+                $("body").append(newImg);
+              };
           }
         });
 
