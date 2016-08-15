@@ -13,8 +13,12 @@ $(document).ready(function(){
       dataType: "json"
     }).done(function(response){
       console.log(response.data[0].url);
-      var el = ("<div><img src='" + response.data[0].url + "'></div>");
-      $('body').append(el);
+      function tenPics(){
+        for(i=0; i<=10; i++){
+          $('body').append('<img src="'+response.data[0].images.fixed_height.url+'">');
+        }
+      }
+      tenPics();
     }).fail(function(){
       console.log("Well this sux. It failed :(");
     }).always(function(){
