@@ -3,7 +3,7 @@ $(document).ready(function(){
     evt.preventDefault();
 
     var limit = 100;
-    var offset = 10;
+    var offset = 100;
 
     var url = "http://api.giphy.com/v1/gifs/search?q=" + $('.search-input').val() + "&limit=" + limit + "&offset=" + offset + "&api_key=dc6zaTOxFJmzC"
     // var url = "http://api.giphy.com/v1/gifs/search?q=" + $('.search-input').val() + "&api_key=dc6zaTOxFJmzC"
@@ -14,8 +14,8 @@ $(document).ready(function(){
     }).done(function(response){
       console.log(response.data[0].url);
       function tenPics(){
-        for(i=0; i<=10; i++){
-          $('body').append('<img src="'+response.data[0].images.fixed_height.url+'">');
+        for(i=0; i<=9; i++){
+          $('body').append('<img src="'+response.data[i].images.fixed_height.url+'">');
         }
       }
       tenPics();
