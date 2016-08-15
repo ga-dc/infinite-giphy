@@ -17,7 +17,15 @@ $( document ).ready(function() {
 
     $form.on("submit", function(e) {
       e.preventDefault();
+      // remove previously added images for new giphy searches
+      var images = document.getElementsByTagName('img');
+      var l = images.length;
+      for (var i = 0; i < l; i++) {
+          images[0].parentNode.removeChild(images[0]);
+      }
+      // grab keyword value
       var $keyword = $("#keyword").val();
+      
     $.ajax({
       type: "get",
       dataType: "json",
@@ -27,6 +35,8 @@ $( document ).ready(function() {
           var newImg = "<img src=" + res.data[i].images.fixed_height.url + ">";
           $("body").append(newImg);
         };
+        // clear input
+        $("#keyword").val('');
     }).fail(function(res) {
       console.log("oh nos, an error!");
     })
