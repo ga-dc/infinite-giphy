@@ -5,9 +5,16 @@ $(document).ready(function () {
 
     $("#search button").on('click', function (event) {
         event.preventDefault();
-        search_term = $("#search input").val();
-        offset = 0;
 
+        // Get the search term
+        search_term = $("#search input").val();
+
+        // Clear the div incase it is not the first search
+        $(".gifs").empty();
+
+
+        // Get the first ten gifs
+        offset = 0;
         requestGiphy(search_term, offset);
         offset += 10;
 
@@ -52,7 +59,7 @@ $(document).ready(function () {
 
         var element = "<img src='" + url + "' style='width: " + width + " height: "+ height +"'>"
 
-        $(".gifs").append(element)
+        $(".gifs").append(element);
     };
 
 
