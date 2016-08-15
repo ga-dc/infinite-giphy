@@ -41,7 +41,7 @@ $(document).ready(function() {
 
       //increase offset
       if (num > 100){
-        num = 0
+        num = 0;
         offset += 100;
       }
 
