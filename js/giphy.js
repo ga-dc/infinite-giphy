@@ -1,5 +1,6 @@
 $( document ).ready(function() {
     var $form = $("#search");
+    var scrollImage = 10;
 
     $form.on("submit", function(e) {
       e.preventDefault();
@@ -26,11 +27,12 @@ $( document ).ready(function() {
         // scroll function
         $(window).on('scroll', function() {
           if($(window).scrollTop() + $(window).height() >= $(document).height()){
-            for (i = 10; i < res.data.length; i++) {
-                var newImg = "<img src=" + res.data[i].images.fixed_height.url + ">";
+                scrollImage ++;
+                if (scrollImage < 100) {
+                var newImg = "<img src=" + res.data[scrollImage].images.fixed_height.url + ">";
                 $("body").append(newImg);
               };
-          }
+            };
         });
 
         // toggle image class
