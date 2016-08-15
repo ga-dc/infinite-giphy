@@ -5,11 +5,7 @@ $( document ).ready(function() {
     $form.on("submit", function(e) {
       e.preventDefault();
       // remove previously added images for new giphy searches
-      var images = document.getElementsByTagName('img');
-      var l = images.length;
-      for (var i = 0; i < l; i++) {
-          images[0].parentNode.removeChild(images[0]);
-      }
+      $("#gify-list").empty();
 
       // grab keyword value
       var $keyword = $("#keyword").val();
@@ -21,7 +17,7 @@ $( document ).ready(function() {
       }).done(function(res){
       for (i = 0; i < 10; i++) {
           var newImg = "<img src=" + res.data[i].images.fixed_height.url + ">";
-          $("body").append(newImg);
+          $("#gify-list").append(newImg);
         };
 
         // scroll function
@@ -29,8 +25,8 @@ $( document ).ready(function() {
           if($(window).scrollTop() + $(window).height() >= $(document).height()){
                 scrollImage ++;
                 if (scrollImage < 100) {
-                var newImg = "<img src=" + res.data[scrollImage].images.fixed_height.url + ">";
-                $("body").append(newImg);
+                var scrollNewImg = "<img src=" + res.data[scrollImage].images.fixed_height.url + ">";
+                $("#gify-list").append(scrollNewImg);
               };
             };
         });
