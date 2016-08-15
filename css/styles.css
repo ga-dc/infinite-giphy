@@ -24,11 +24,10 @@ img {
   vertical-align: middle;
   height: 200px;
   width: 200px;
-  transition: 1s;
+  transition: .2s;
 }
 
-.big {
+img:hover {
   height: 350px;
   width: 350px;
-  transition: 1s;
 }
