@@ -18,6 +18,10 @@ form h1 {
   font-size: 30px;
 }
 
+input {
+    width: 200px;
+}
+
 img {
   display: block;
   margin: 50px auto;
