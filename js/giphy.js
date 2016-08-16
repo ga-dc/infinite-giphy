@@ -1,12 +1,9 @@
 $( document ).ready(function() {
     var $form = $("#search");
-    var scrollImage = 10;
 
     $form.on("submit", function(e) {
       e.preventDefault();
-      // remove previously added images for new giphy searches
-      $("#gify-list").empty();
-
+      $(window).unbind();
       // grab keyword value
       var $keyword = $("#keyword").val();
 
@@ -15,6 +12,10 @@ $( document ).ready(function() {
       dataType: "json",
       url: "http://api.giphy.com/v1/gifs/search?q=" + $keyword + "&limit=100&api_key=dc6zaTOxFJmzC"
       }).done(function(res){
+      // remove previously added images for new giphy searches
+      $("#gify-list").empty();
+      var scrollImage = 10;
+
       for (i = 0; i < 10; i++) {
           var newImg = "<img src=" + res.data[i].images.fixed_height.url + ">";
           $("#gify-list").append(newImg);
