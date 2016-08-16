@@ -12,7 +12,13 @@ $(document).ready(function(){
         // console.log(response.data[i].url)
         $(".giphy").append('<div><img src="'+response.data[i].images.fixed_height.url+'" /></div>');
       }
+      $(window).scroll(function()
+    if $(window).scrollTop() + $(window).height() == $(document).height())
+    {
+      for (n=11; )
+    }
     }).fail(function(response){
+
     }).always(function(){
     })
   })
